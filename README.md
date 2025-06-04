@@ -43,3 +43,9 @@
 - JWT Auth
 - Bcrypt
 - Render (for DB hosting)
+## Outcome
+- Users will be able to register and log in.
+- Authenticated users will be able to add and manage patient and doctor records.
+- Patients will be able to be assigned to doctors.
+- Data will be stored securely in PostgreSQL.
+
