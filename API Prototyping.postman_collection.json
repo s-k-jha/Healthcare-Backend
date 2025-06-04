@@ -1,0 +1,603 @@
+{
+	"info": {
+		"_postman_id": "6722d5b4-972b-40db-beca-95f7c6234b51",
+		"name": "API Prototyping",
+		"description": "> Prototyping your API in Postman streamlines the development process by enabling you to design and test front- and back-end API-driven functionalities within a shared workspace. \n  \n\n## **🪐 Get started**\n\nThis collection serves as a place for teams from the Intergalactic Bank to collaborate on the design of the soon-to-be-developed Intergalactic Bank API. This prototype collection outlines how the service's requests and responses should function. Stakeholders should provide their thoughts and suggestions before we begin development.\n\n## **🧑‍💻 Setting up a mock server**\n\n<img src=\"https://lh7-us.googleusercontent.com/eNxPYjGNGALmKSzZvdhlMuy_XK3C_iQ3rK7tCDiPvr6nePMyggp9NTIAjcZYs7oIy8PU_NCGFKtcBPRZrfplfPyrKsO5SCMRX6OuBpzsL_HuOHxW2DwA3FH2-o0uFJgAZOr7JaQTiIvkayUSrPdsxQQ\">\n\nThis collection is meant to be used alongside a [<b>Postman Mock Server</b>](https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/)**.** Since we are still in the planning phase of the API, we have included several example responses for each request, laying out how we think each possible response will look. Including these example responses also has the added benefit of powering a mock server. By following the instructions, you can set up your own mock server and simulate the behavior of this API by returning the predefined data.\n\n**To set up a mock server:**\n\n1. Select **Mock collection** from the collection's actions menu.\n2. On the **Create a mock server** page, add a name for your mock server, and select to **Save the mock server URL as a new environment variable.** This will create a new environment with the mock’s URL pre-populated.\n3. Select the **New Environment** from the **Environment** dropdown list.\n4. Complete the process by clicking **Create Mock Server**.\n5. Send the request! You should now see that the `{{url}}` variable is using the mock server you set up previously.\n6. Try editing fields in the mocked responses to see your changes reflected in the mock server.\n    \n\n## **🤔Why include tests?**\n\nEach request in the collection includes tests to check the response structure. These tests check that all of the properties that other systems rely on are present and of the expected data type. Once you have the fully built-out service in place, you can swap the mock server URL for the live URL and test that your implementation follows the same guidelines as your prototype. This gives you confidence that you can start integrating this service into your systems.\n\nIf you are adding a new proposed endpoint for this request, try asking Postbot to generate tests for it.\n\n## **🤝Collaborate with us!**\n\nThe Bank Services team wants your team’s input on our API design. Add an [inline comment](https://learning.postman.com/docs/collaborating-in-postman/working-with-your-team/discussing-your-work/) to this collection with your ideas, questions, and suggestions, or reach out to us on our internal Slack by tagging `@bank-services`.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29546825",
+		"_collection_link": "https://shivam-kumar-jha.postman.co/workspace/264cb050-d8da-48d1-a1ea-f7f53059afb7/collection/29546825-6722d5b4-972b-40db-beca-95f7c6234b51?action=share&source=collection_link&creator=29546825"
+	},
+	"item": [
+		{
+			"name": "Authentication APIs",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Harsh Sharma\",\r\n    \"email\": \"harsh@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"harsh@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient Management APIs",
+			"item": [
+				{
+					"name": "Create Patients",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Shivam Kumar\",\r\n    \"age\": 24,\r\n    \"disease\": \"Eye Checkup\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Patients",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient Details By id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/patients/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"patients",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Patient Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Sagar Sharma\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/patients/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"patients",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update By id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"saksham\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/patients/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"patients",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor Management APIs",
+			"item": [
+				{
+					"name": "Add a new doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Siddharth Gupta\",\r\n    \"specialization\": \"General Physician\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/doctors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all doctors.",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/doctors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get details of doctor by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/doctors/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"doctors",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update doctor details By id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"specialization\":\"ENT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/doctors/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"doctors",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a doctor record",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/doctors/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"doctors",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient-Doctor Mapping APIs",
+			"item": [
+				{
+					"name": "Retrieve all patient-doctor by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/mappings/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"mappings",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all patient-doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/mappings/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"mappings",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign a doctor to a patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"doctorId\": 1,\r\n  \"patientId\": 10\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/mappings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"mappings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzQ5MDM1OTIwfQ._hSWuNqfL1YLyd1Gs1XqZaHrw-NJOayLvy57ct9-oBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"doctorId\": 1,\r\n  \"patientId\": 10\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/mappings/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"mappings",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
